@@ -1,0 +1,20 @@
+#btn-send {
+    position: static;
+    float: right;
+}
+
+#input-title {
+    font-size: large;
+}
+
+body {
+    background-image: url("../images/faustao.jpg");
+    background-size: cover
+}
+
+.jumbotron {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    opacity: 0.9;
+}
