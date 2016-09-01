@@ -1,0 +1,27 @@
+.jumbotron {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    opacity: 0.9;
+}
+
+body {
+    background-image: url("../images/fausto_silva.jpg");
+    background-size: cover;
+}
+
+button {
+    opacity: 1.0;
+}
+
+.list-group-item-danger {
+    background-color: rgb(200, 40, 40);
+}
+
+.list-group-item-danger:hover {
+    background-color: rgb(150, 0, 0);
+}
+
+.colored-btn {
+    color: white;
+}
