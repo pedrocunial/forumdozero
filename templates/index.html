@@ -1,14 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt">
     <head>
-	<meta charset="utf-8">
-	<title>ForInsper</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+        <meta charset="utf-8">
+        <title>ForInsper</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet">
     </head>
     <body>
-	<form action="/topic">
-	    <input type="submit" value="Ver tópico">	    
-	</form>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <a class="navbar-brand" href="/">ForInsper</a>
+            <div class="collapse navbar-collapse" id="header-navbar">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="http://www.google.com">Google</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="jumbotron col-sm-5">
+            <h2>Temas</h2>
+            <div class="list-group">
+                <a href="/academico" class="list-group-item list-group-item-danger">
+                    <p class="colored-btn">Acadêmico</p>
+                </a>
+                <a href="/social" class="list-group-item list-group-item-danger">
+                    <p class="colored-btn">Social</p>
+                </a>
+                <a href="/topic" class="list-group-item list-group-item-danger">
+                    <p class="colored-btn">Outros</p>
+                </a>
+            </div>
+        </div>
     </body>
 </html>
