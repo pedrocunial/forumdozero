@@ -43,9 +43,9 @@ def section():
     return render_template("section.html")
 
 
-@app.route("/new_topic")
-def new_topic():
-    return render_template("new_topic.html")
+# @app.route("/new_topic")
+# def new_topic():
+#     return render_template("new_topic.html")
 
 
 @app.route("/topic", methods=["GET", "POST"])
@@ -61,7 +61,7 @@ def topic():
         return "Sua mensagem: {}, sob o título de: {}"\
             .format(post_text, post_title)
     else:
-        return render_template("topic.html")
+        return render_template("new_topic.html")
 
 
 @app.route("/read/<email>")
