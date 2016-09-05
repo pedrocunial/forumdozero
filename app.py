@@ -38,6 +38,16 @@ def social():
     return render_template("social.html")
 
 
+@app.route("/section")
+def section():
+    return render_template("section.html")
+
+
+@app.route("/new_topic")
+def new_topic():
+    return render_template("new_topic.html")
+
+
 @app.route("/topic", methods=["GET", "POST"])
 def topic():
     if request.method == "POST":

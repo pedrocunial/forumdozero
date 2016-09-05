@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>Home :: ForInsper</title>
+  <title>Novo tópico :: ForInsper</title>
   <!-- Bootstrap -->
   <link href="{{ url_for('static',filename='css/bootstrap.min.css') }}" rel="stylesheet">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -15,7 +16,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   <link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet">
-</head>
 <body>
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -41,43 +41,49 @@
   </nav>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-9">
-        <div class="main panel panel-default">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="panel panel-default">
           <div class="panel-body">
             <div class="container-fluid">
-              <div class="category-holder">
-                <h3 class="category-title"><span class="glyphicon glyphicon-info-sign"></span> <a href="/section">CLASSIFICAÇÃO</a></h3>
-                <h5 class="section-title">TEMA 1</h5>
-                <h5 class="section-title">TEMA 2</h5>
-                <h5 class="section-title">TEMA 3</h5>
-                <h5 class="section-title">TEMA 4</h5>
+              <h3>Novo tópico</h3>
+              <div class="input-group"> <span class="input-group-addon" id="basic-addon3">Título</span>
+                <input type="text" class="form-control" aria-describedby="basic-addon3"> </div>
+              <br/>
+              <textarea wrap=soft rows=8 cols=15 class="form-control" aria-describedby="basic-addon3"></textarea>
+              <br/>
+              <div class="input-group"> <span class="input-group-addon" id="basic-addon3">Categoria</span>
+                <select class="form-control" id="sel1">
+                  <option value="" disabled selected="selected">---</option>
+                  <option value="entidades">Entidades</option>
+                  <option value="graduacao">Graduação</option>
+                </select>
+              </div>
+              <br/>
+              <div class="input-group"> <span class="input-group-addon" id="basic-addon3">Tema</span>
+                <select class="form-control" id="sel2">
+                  <option value="" disabled selected="selected">---</option>
+                  <option value="entidades">D.A. Insper</option>
+                  <option value="graduacao">InFinance</option>
+                </select>
+              </div>
+              <br/>
+              <div class="btn-group pull-right" role="group" aria-label="">
+                <button type="button" class="btn btn-danger" onclick="location.href='/';">Cancelar</button>
+                <button type="button" class="btn btn-success">Publicar</button>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div class="sidebar col-md-3 hidden-sm hidden-xs">
-        <div class="panel panel-default">
-          <div class="panel-body">
-            <h3>Insper Links</h3>
-            <ul class="list-group">
-              <li class="list-group-item"> <a href="http://www.insper.edu.br/" target="_blank">Insper</a> </li>
-              <li class="list-group-item"> <a href="http://portaldoaluno.insper.edu.br/" target="_blank">Portal do Aluno</a> </li>
-              <li class="list-group-item"> <a href="http://insper.blackboard.com/" target="_blank">Insper Blackboard</a> </li>
-            </ul>
-          </div>
-        </div>
-        <div class="btn-group" role="group" aria-label="">
-          <button onclick="location.href='/new_topic';" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-edit"></span> Novo tópico</button>
-        </div>
-      </div>
+      <div class="col-md-3"></div>
     </div>
-    <p class="text-center">&copy;
-      <script type="text/javascript">
-        document.write(new Date().getFullYear())
-      </script>
-    </p>
   </div>
+  <p class="text-center">&copy;
+    <script type="text/javascript">
+      document.write(new Date().getFullYear())
+    </script>
+  </p>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 </body>
 

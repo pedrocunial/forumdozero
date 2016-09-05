@@ -1,0 +1,32 @@
+body {
+  background: #999999;
+  padding-top: 70px;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  opacity: 0.8;
+}
+
+.navbar-default .navbar-nav > li:last-child > a {
+  background-color: #cc0000;
+  color: #fff;
+}
+
+.navbar-default {
+  border-bottom: 1px solid #cc0000;
+}
+
+.topic-holder h3 {
+  background: #cc0000;
+  color: #ffffff;
+  padding: 1rem 1.5rem;
+}
+
+.topic-holder div:last-child p {
+  text-align: justify;
+}
+
+.reply-body {
+  border-left: 2px solid #cc0000;
+  padding-left: 1em;
+}
