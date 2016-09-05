@@ -8,21 +8,21 @@
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
   <title>Tópico :: ForInsper</title>
   <!-- Bootstrap -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="{{ url_for('static',filename='css/bootstrap.min.css') }}" rel="stylesheet">
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-  <link rel="stylesheet" href="css/topic.css"> </head>
-
+  <link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet">
+</head>
 <body>
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
-        <a class="navbar-brand" href="file:///C:/Users/Gustavo/Documents/Insper/4%C2%BA%20Semestre/Tecnologias%20Web/Projeto%201/index.html"><img alt="ForInsper" src="images/logo.png" height="100%"></a>
+        <a class="navbar-brand" href="/"><img alt="ForInsper" src="{{ url_for('static', filename='images/logo.png') }}" height="100%"></a>
         <form class="navbar-form navbar-left">
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Usuário">
@@ -90,8 +90,7 @@
         document.write(new Date().getFullYear())
       </script>
     </p>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 </body>
 
 </html>
