@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="utf-8">
+        <title>ForInsper</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/forum.css') }}" rel="stylesheet">
+    </head>
+    <body>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <a class="navbar-brand" href="/">ForInsper</a>
+            <div class="collapse navbar-collapse" id="header-navbar">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="http://www.google.com">Google</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <form method="post">
+            <div class="form-group col-sm-5 jumbotron">
+                <!-- Título do tópico -->
+                <label id="input-title" for="testName">Título</label>
+                <input type="text" class="form-control" name="title" placeholder="Título"></input>
+                <!-- Entrada de texto para postagem -->
+                <label for="testInput">Mensagem</label>
+                <textarea type="text" class="form-control" name="msg" placeholder="Sua mensagem" rows="12"></textarea>
+                <small class="form-text text-muted">Não seja rude!</small>
+                <br>
+                <button id="btn-send" type="submit" class="btn btn-danger">Enviar</button>
+            </div>
+        </form>
+    </body>
+</html>

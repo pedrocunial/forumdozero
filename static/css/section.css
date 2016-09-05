@@ -32,20 +32,9 @@ body {
   background: #cc0000;
   color: #ffffff;
   padding: 1rem 1.5rem;
-  cursor: pointer;
-}
-
-.category-holder a {
-  color: #fff;
-  text-decoration: none;
-}
-
-.category-holder a:hover {
-  text-decoration: underline;
 }
 
 .category-icon {
-    
   font-size: 2rem;
 }
 

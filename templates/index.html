@@ -1,36 +1,84 @@
 <!DOCTYPE html>
-<html lang="pt">
-    <head>
-        <meta charset="utf-8">
-        <title>ForInsper</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
-        <link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet">
-    </head>
-    <body>
-        <nav class="navbar navbar-default navbar-fixed-top">
-            <a class="navbar-brand" href="/">ForInsper</a>
-            <div class="collapse navbar-collapse" id="header-navbar">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="http://www.google.com">Google</a>
-                    </li>
-                </ul>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Home :: ForInsper</title>
+  <!-- Bootstrap -->
+  <link href="{{ url_for('static',filename='css/bootstrap.min.css') }}" rel="stylesheet">
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  <link href="{{ url_for('static', filename='css/index.css') }}" rel="stylesheet">
+
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/"><img alt="ForInsper" src="{{ url_for('static', filename='images/logo.png') }}" height="100%"></a>
+        <form class="navbar-form navbar-left">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Usuário">
+            <input type="password" class="form-control" placeholder="Senha"> </div>
+          <button type="submit" class="btn btn-default">Login</button>
+        </form>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="#">Registrar</a></li>
+        </ul>
+      </div>
+      <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container-fluid -->
+  </nav>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-9">
+        <div class="main panel panel-default">
+          <div class="panel-body">
+            <div class="container-fluid">
+              <div class="category-holder">
+                <h3 class="category-title"><span class="glyphicon glyphicon-info-sign"></span> <a href="/section">CLASSIFICAÇÃO</a></h3>
+                <h5 class="section-title">TEMA 1</h5>
+                <h5 class="section-title">TEMA 2</h5>
+                <h5 class="section-title">TEMA 3</h5>
+                <h5 class="section-title">TEMA 4</h5> </div>
             </div>
-        </nav>
-        <div class="jumbotron col-sm-5">
-            <h2>Temas</h2>
-            <div class="list-group">
-                <a href="/academico" class="list-group-item list-group-item-danger">
-                    <p class="colored-btn">Acadêmico</p>
-                </a>
-                <a href="/social" class="list-group-item list-group-item-danger">
-                    <p class="colored-btn">Social</p>
-                </a>
-                <a href="/topic" class="list-group-item list-group-item-danger">
-                    <p class="colored-btn">Outros</p>
-                </a>
-            </div>
+          </div>
         </div>
-    </body>
+      </div>
+      <div class="sidebar col-md-3 hidden-sm hidden-xs">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h3>Insper Links</h3>
+            <ul class="list-group">
+              <li class="list-group-item"> <a href="http://www.insper.edu.br/" target="_blank">Insper</a> </li>
+              <li class="list-group-item"> <a href="http://portaldoaluno.insper.edu.br/" target="_blank">Portal do Aluno</a> </li>
+              <li class="list-group-item"> <a href="http://insper.blackboard.com/" target="_blank">Insper Blackboard</a> </li>
+            </ul>
+          </div>
+        </div>
+        <div class="btn-group" role="group" aria-label="">
+          <button onclick="location.href='/new_topic';" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-edit"></span> Novo tópico</button>
+        </div>
+      </div>
+    </div>
+    <p class="text-center">&copy;
+      <script type="text/javascript">
+        document.write(new Date().getFullYear())
+      </script>
+    </p>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+</body>
+
 </html>
