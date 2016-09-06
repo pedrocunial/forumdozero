@@ -89,32 +89,30 @@ def section():
     return render_template("section.html")
 
 
-# @app.route("/new_topic")
-# def new_topic():
-#     return render_template("new_topic.html")
-
-
-@app.route("/topic", methods=["GET", "POST"])
+@app.route("/new_topic", methods=["GET", "POST"])
 def topic():
     if request.method == "POST":
-        email = "johndoe"
-        post_title = request.form["title"]
-        post_text = request.form["msg"]
-        score = 1
-        user = User(email, post_title, post_text, score)
-        db.session.add(user)
+        # Create new topic
+        email = request.form["email"]
+        title = request.form["title"]
+        text = request.form["msg"]
+        tpost = TopicPost(email, title, text)
+        db.session.add(tpost)
         db.session.commit()
-        return "Sua mensagem: {}, sob o título de: {}"\
-            .format(post_text, post_title)
+        return "Mensagem de {}, sob o titulo de {}"\
+            .format(email, title)
     else:
+        # DEBUG: Essa feature so faz sentido por enquanto
+        #        criei para que possamos ver se a postagem
+        #        funcionou ou nao
         return render_template("new_topic.html")
 
 
 @app.route("/read/<email>")
 def read_email(email):
-    user = User.query.filter_by(email=email).first()
-    if user:
-        return user.email + " Título do post: &lt;" + user.post_title + "&gt;"
+    tpost = TopicPost.query.filter_by(email=email).first()
+    if tpost:
+        return tpost.email + " Título do post: &lt;" + tpost.title + "&gt;"
     else:
         return "Usuário não encontrado", 404
 

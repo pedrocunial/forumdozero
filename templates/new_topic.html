@@ -46,32 +46,39 @@
         <div class="panel panel-default">
           <div class="panel-body">
             <div class="container-fluid">
-              <h3>Novo tópico</h3>
-              <div class="input-group"> <span class="input-group-addon" id="basic-addon3">Título</span>
-                <input type="text" class="form-control" aria-describedby="basic-addon3"> </div>
-              <br/>
-              <textarea wrap=soft rows=8 cols=15 class="form-control" aria-describedby="basic-addon3"></textarea>
-              <br/>
-              <div class="input-group"> <span class="input-group-addon" id="basic-addon3">Categoria</span>
-                <select class="form-control" id="sel1">
-                  <option value="" disabled selected="selected">---</option>
-                  <option value="entidades">Entidades</option>
-                  <option value="graduacao">Graduação</option>
-                </select>
-              </div>
-              <br/>
-              <div class="input-group"> <span class="input-group-addon" id="basic-addon3">Tema</span>
-                <select class="form-control" id="sel2">
-                  <option value="" disabled selected="selected">---</option>
-                  <option value="entidades">D.A. Insper</option>
-                  <option value="graduacao">InFinance</option>
-                </select>
-              </div>
-              <br/>
-              <div class="btn-group pull-right" role="group" aria-label="">
-                <button type="button" class="btn btn-danger" onclick="location.href='/';">Cancelar</button>
-                <button type="button" class="btn btn-success">Publicar</button>
-              </div>
+              <form method="post">
+                <h3>Novo tópico</h3>
+                <div class="input-group"> <span class="input-group-addon" id="basic-addon3">Título</span>
+                    <input type="text" class="form-control" aria-describedby="basic-addon3" name="title">
+                </div>
+                <br/>
+                <div class="input-group"> <span class="input-group-addon" id="basic-addon3">E-mail</span>
+                    <input type="text" class="form-control" aria-describedby="basic-addon3" name="email">
+                </div>
+                <br>
+                <textarea wrap=soft rows=8 cols=15 class="form-control" aria-describedby="basic-addon3" name="msg"></textarea>
+                <br/>
+                <div class="input-group"> <span class="input-group-addon" id="basic-addon3">Categoria</span>
+                    <select class="form-control" id="sel1">
+                    <option value="" disabled selected="selected">---</option>
+                    <option value="entidades">Entidades</option>
+                    <option value="graduacao">Graduação</option>
+                    </select>
+                </div>
+                <br/>
+                <div class="input-group"> <span class="input-group-addon" id="basic-addon3">Tema</span>
+                    <select class="form-control" id="sel2">
+                    <option value="" disabled selected="selected">---</option>
+                    <option value="entidades">D.A. Insper</option>
+                    <option value="graduacao">InFinance</option>
+                    </select>
+                </div>
+                <br/>
+                <div class="btn-group pull-right" role="group" aria-label="">
+                    <button type="button" class="btn btn-danger" onclick="location.href='/';">Cancelar</button>
+                    <button type="submit" class="btn btn-success">Publicar</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
@@ -84,7 +91,8 @@
       document.write(new Date().getFullYear())
     </script>
   </p>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 </body>
 
 </html>
