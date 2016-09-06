@@ -55,18 +55,15 @@ class User(db.Model):
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(120), unique=True)
-    post_title = db.Column(db.String(140), unique=True)
-    post_text = db.Column(db.String(2000), unique=True)
-    score = db.Column(db.Integer, unique=True)
+    # post_title = db.Column(db.String(140), unique=True)
+    # post_text = db.Column(db.String(2000), unique=True)
+    # score = db.Column(db.Integer, unique=True)
 
-    def __init__(self, email, post_title, post_text, score):
+    def __init__(self, email):
         self.email = email
-        self.post_title = post_title
-        self.post_text = post_text
-        self.score = score
 
     def __repr__(self):
-        return "<{}; {}>".format(self.email, self.post_title)
+        return "<{}>".format(self.email)
 
 
 @app.route("/")
@@ -112,7 +109,8 @@ def topic():
 def read_email(email):
     tpost = TopicPost.query.filter_by(email=email).first()
     if tpost:
-        return tpost.email + " Título do post: &lt;" + tpost.title + "&gt;"
+        [print(p.title) for p in TopicPost.query]
+        return str([p.title for p in TopicPost.query])
     else:
         return "Usuário não encontrado", 404
 
