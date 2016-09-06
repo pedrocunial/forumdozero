@@ -25,6 +25,8 @@ class TopicPost(db.Model):
     text = db.Column(db.String(2000), unique=False, nullable=False)
     # Pontuacao do post
     score = db.Column(db.Integer, unique=False, nullable=False)
+    # TEST: Tendo a chave de um objeto usuario como parte da tabela
+    # user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
 
     def __init__(self, email, title, text):
         """
