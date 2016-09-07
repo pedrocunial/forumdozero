@@ -78,14 +78,9 @@ def home():
     return render_template("index.html")
 
 
-@app.route("/academico")
-def academico():
-    return render_template("academic.html")
-
-
-@app.route("/social")
-def social():
-    return render_template("social.html")
+@app.route("/section/adm")
+def adm():
+    return render_template("adm.html")
 
 
 @app.route("/section")
