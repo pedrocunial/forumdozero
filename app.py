@@ -10,11 +10,34 @@ app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
 db = SQLAlchemy(app)
 
 
+class User(db.Model):
+    """
+    Usuario do forum
+    Ainda nao utilizado, nao faz sentido enquanto
+    nao houver um modelo de login completo
+    """
+    __tablename__ = "user"
+    # Chave primaria da tabela
+    id = db.Column(db.Integer, primary_key=True)
+    email = db.Column(db.String(80), unique=False, nullable=False)
+    nome = db.Column(db.String(80), unique=True, nullable=False)
+
+    def __init__(self, email, nome):
+        self.email = email
+        self.nome = nome
+
+    def __repr__(self):
+        """
+        Representacao do objeto ao ser printado
+        """
+        return "<{}>".format(self.nome)
+
+
 class TopicPost(db.Model):
     """
     Define os padrões da postagem em um tópico
     """
-    __tablename__ = "topic_post"
+    __tablename__ = "post"
     # Chave da tabela
     id = db.Column(db.Integer, primary_key=True)
     # Email do usuario autor do post
@@ -25,8 +48,10 @@ class TopicPost(db.Model):
     text = db.Column(db.String(2000), unique=False, nullable=False)
     # Pontuacao do post
     score = db.Column(db.Integer, unique=False, nullable=False)
-    # TEST: Tendo a chave de um objeto usuario como parte da tabela
-    # user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    # Todo post deve ter um autor (user), mas nem todo usuario deve ter
+    # um autor precisa fazer uma postagem
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    user = db.relationship("User")
 
     def __init__(self, email, title, text):
         """
@@ -46,24 +71,6 @@ class TopicPost(db.Model):
             return "<{}; {}>".format(self.email, self.title)
         else:
             return "<{}; No title".format(self.email)
-
-
-class User(db.Model):
-    """
-    Deprecated
-    """
-    __tablename__ = "users"
-    id = db.Column(db.Integer, primary_key=True)
-    email = db.Column(db.String(120), unique=True)
-    # post_title = db.Column(db.String(140), unique=True)
-    # post_text = db.Column(db.String(2000), unique=True)
-    # score = db.Column(db.Integer, unique=True)
-
-    def __init__(self, email):
-        self.email = email
-
-    def __repr__(self):
-        return "<{}>".format(self.email)
 
 
 @app.route("/")
@@ -109,7 +116,7 @@ def topic():
 def read_email(email):
     tpost = TopicPost.query.filter_by(email=email).first()
     if tpost:
-        [print(p.title) for p in TopicPost.query]
+        # [print(p.title) for p in TopicPost.query]  # DEBUG
         return str([p.title for p in TopicPost.query])
     else:
         return "Usuário não encontrado", 404
