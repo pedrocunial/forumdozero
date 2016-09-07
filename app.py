@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 # Iniciando Flask
@@ -73,9 +73,14 @@ class TopicPost(db.Model):
             return "<{}; No title".format(self.email)
 
 
+          
+# Routing
+class Category(db.Model):
+  
+
 @app.route("/")
 def home():
-    return render_template("index.html")
+    return render_template("forum.html")
 
 
 @app.route("/section/adm")
@@ -115,6 +120,10 @@ def read_email(email):
         return str([p.title for p in TopicPost.query])
     else:
         return "Usuário não encontrado", 404
+
+@app.route("/forum")
+def forum():
+  return render_template("forum.html")
 
 
 db.create_all()
