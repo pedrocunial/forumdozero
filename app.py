@@ -33,25 +33,28 @@ class User(db.Model):
         return "<{}>".format(self.nome)
 
 
-class TopicPost(db.Model):
+class Topic(db.Model):
     """
     Define os padrões da postagem em um tópico
     """
-    __tablename__ = "post"
+    __tablename__ = "topic"
     # Chave da tabela
     id = db.Column(db.Integer, primary_key=True)
     # Email do usuario autor do post
     email = db.Column(db.String(120), unique=False, nullable=False)
     # Titulo do post (pode nao ser preenchido)
-    title = db.Column(db.String(140), unique=False, nullable=True)
+    title = db.Column(db.String(140), unique=True, nullable=False)
     # Conteudo do post
     text = db.Column(db.String(2000), unique=False, nullable=False)
     # Pontuacao do post
     score = db.Column(db.Integer, unique=False, nullable=False)
     # Todo post deve ter um autor (user), mas nem todo usuario deve ter
-    # um autor precisa fazer uma postagem
-    user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
-    user = db.relationship("User")
+    # um autor precisa fazer uma postagem (nao usado)
+    # user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    # user = db.relationship("User")
+    __mapper_args__ = {
+        'polymorphic_identity': 'topic',
+    }
 
     def __init__(self, email, title, text):
         """
@@ -61,6 +64,53 @@ class TopicPost(db.Model):
         self.title = title
         self.text = text
         self.score = 1
+
+    def __repr__(self):
+        """
+        Representacao do objeto
+        """
+        return "<{}; {}>".format(self.email, self.title)
+
+
+class TopicPost(Topic):
+    """
+    Define os padrões da postagem em um tópico
+    """
+    __tablename__ = "post"
+    __mapper_args__ = {
+        'polymorphic_identity': 'post',
+        'polymorphic_on': 'topic'
+    }
+
+    def __init__(self, email, title, text):
+        """
+        Construtor
+        """
+        super().__init__()
+
+    def __repr__(self):
+        """
+        Representacao do objeto
+        """
+        return "<{}; {}>".format(self.email, self.title)
+
+
+class TopicResponse(Topic):
+    """
+    Respostas ao topico (diferente da postagem original)
+    """
+    __tablename__ = "response"
+    title = db.Column(db.String(140), nullable=True)
+    post_id = db.Column(db.Integer, db.ForeignKey("post.id"))
+    post = db.relationship("TopicPost")
+    __mapper_args__ = {
+        'polymorphic_identity': 'response',
+        'polymorphic_on': 'topic'
+    }
+
+    def __init__(self, email, title, text):
+        # Construtor da super classe
+        super().__init__()
 
     def __repr__(self):
         """
