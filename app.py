@@ -242,14 +242,10 @@ def read_email(email):
 
 @app.route("/<theme>/thread")
 def read_topic(theme):
-    tpost = TopicPost.query.filter_by(theme=theme).first()
-    if tpost:
-        return render_template("topic_view.html",
-                               senddata=TopicPost.query
-                               .filter_by(theme=theme),
-                               theme=theme.title())
-    else:
-        return "Essa categoria nao existe, seu burro", 404
+    return render_template("topic_view.html",
+                           senddata=TopicPost.query
+                           .filter_by(theme=theme),
+                           theme=theme.title())
 
 
 db.create_all()
