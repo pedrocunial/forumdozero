@@ -48,14 +48,20 @@ class TopicPost(db.Model):
     text = db.Column(db.String(2000), unique=False, nullable=False)
     # Pontuacao do post
     score = db.Column(db.Integer, unique=False, nullable=False)
+    # Categoria do topico
+    category = db.Column(db.String(20), unique=False, nullable=False)
+    # Tema do topico
+    theme = db.Column(db.String(20), unique=False, nullable=False)
 
-    def __init__(self, email, title, text):
+    def __init__(self, email, title, text, category, theme):
         """
         Construtor
         """
         self.email = email
         self.title = title
         self.text = text
+        self.category = category
+        self.theme = theme
         self.score = 1
 
     def __repr__(self):
@@ -126,7 +132,9 @@ def topic():
         email = request.form["email"]
         title = request.form["title"]
         text = request.form["msg"]
-        tpost = TopicPost(email, title, text)
+        category = request.form["category"]
+        theme = request.form["theme"]
+        tpost = TopicPost(email, title, text, category, theme)
         db.session.add(tpost)
         db.session.commit()
         return "Mensagem de {}, sob o titulo de {}"\
@@ -146,6 +154,17 @@ def read_email(email):
         return str([p.title for p in TopicPost.query])
     else:
         return "Usuário não encontrado", 404
+
+
+@app.route("/<category>/thread")
+def read_topic(category):
+    tpost = TopicPost.query.filter_by(category=category).first()
+    if tpost:
+        return render_template("topic_view.html",
+                               senddata=TopicPost.query,
+                               category=category.title())
+    else:
+        return "Essa categoria nao existe, seu burro", 404
 
 
 db.create_all()
