@@ -9,6 +9,28 @@ app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
 db = SQLAlchemy(app)
 
+# Definindo temas possíveis (será utilizado para conferir se o url
+# desejado é ou não plausível)
+themes = [
+    "Administração",
+    "Economia",
+    "Engenharia",
+    "Outros",
+    "Achados e Perdidos",
+    "Clubes",
+    "Entidades",
+    "Atlética",
+    "Consilium Insper",
+    "Design Challenge",
+    "Diretório Acadêmico",
+    "Enactus",
+    "GAS",
+    "inFinance",
+    "Insper Post",
+    "Liga de Empreendedores",
+    "Sementes Culturais"
+]
+
 
 class User(db.Model):
     """
@@ -242,10 +264,14 @@ def read_email(email):
 
 @app.route("/<theme>/thread")
 def read_topic(theme):
-    return render_template("topic_view.html",
-                           senddata=TopicPost.query
-                           .filter_by(theme=theme),
-                           theme=theme.title())
+    global themes
+    if theme in themes:
+        return render_template("topic_view.html",
+                               senddata=TopicPost.query
+                               .filter_by(theme=theme),
+                               theme=theme.title())
+    else:
+        return "Tema não encontrado, seu burro", 404
 
 
 db.create_all()
