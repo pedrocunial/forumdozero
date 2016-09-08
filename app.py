@@ -137,16 +137,10 @@ def topic():
         tpost = TopicPost(email, title, text, category, theme)
         db.session.add(tpost)
         db.session.commit()
-        if theme == "DA":
-            return render_template("topic_view.html",
-                                   senddata=TopicPost.query
-                                   .filter_by(theme=theme),
-                                   theme="Diretório Acadêmico")
-        else:
-            return render_template("topic_view.html",
-                                   senddata=TopicPost.query
-                                   .filter_by(theme=theme),
-                                   theme=theme.title())
+        return render_template("topic_view.html",
+                               senddata=TopicPost.query
+                               .filter_by(theme=theme),
+                               theme=theme.title())
         # return "Mensagem de {}, sob o titulo de {}"\
         #     .format(email, title)
     else:
@@ -171,7 +165,8 @@ def read_topic(theme):
     tpost = TopicPost.query.filter_by(theme=theme).first()
     if tpost:
         return render_template("topic_view.html",
-                               senddata=TopicPost.query.filter_by(theme=theme),
+                               senddata=TopicPost.query
+                               .filter_by(theme=theme),
                                theme=theme.title())
     else:
         return "Essa categoria nao existe, seu burro", 404
