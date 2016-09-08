@@ -3,6 +3,14 @@ body {
   padding-top: 70px;
 }
 
+ul
+{
+    list-style-type: none;
+    margin-top: 2%;
+    margin-left: 2%;
+    width: 96%;
+}
+
 .navbar-default .navbar-nav > li > a:hover {
   opacity: 0.8;
 }
@@ -73,4 +81,8 @@ body {
   border-bottom: 2px solid #cc0000;
   margin-top: -4px;
   padding-bottom: 0.2em;
+}
+
+.list-group-item{
+  cursor: pointer;
 }
