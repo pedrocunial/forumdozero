@@ -119,69 +119,86 @@ def home():
 def adm():
     return render_template("adm.html")
 
+
 @app.route("/section/eco")
 def eco():
     return render_template("eco.html")
+
 
 @app.route("/section/eng")
 def eng():
     return render_template("eng.html")
 
+
 @app.route("/section/outrosa")
 def outrosa():
     return render_template("outrosa.html")
+
 
 @app.route("/section/aep")
 def aep():
     return render_template("aep.html")
 
+
 @app.route("/section/club")
 def club():
     return render_template("club.html")
+
 
 @app.route("/section/outross")
 def outross():
     return render_template("outross.html")
 
+
 @app.route("/section/outros")
 def outros():
     return render_template("outros.html")
+
 
 @app.route("/section/atl")
 def atl():
     return render_template("atl.html")
 
+
 @app.route("/section/cons")
 def cons():
     return render_template("cons.html")
+
 
 @app.route("/section/desc")
 def desc():
     return render_template("desc.html")
 
+
 @app.route("/section/da")
 def da():
     return render_template("da.html")
+
 
 @app.route("/section/enac")
 def enac():
     return render_template("enac.html")
 
+
 @app.route("/section/gas")
 def gas():
     return render_template("gas.html")
+
 
 @app.route("/section/inf")
 def inf():
     return render_template("inf.html")
 
+
 @app.route("/section/inspo")
 def inspo():
     return render_template("inspo.html")
 
+
 @app.route("/section/liga")
 def liga():
     return render_template("liga.html")
+
 
 @app.route("/section/sement")
 def sement():
