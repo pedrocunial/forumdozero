@@ -22,19 +22,19 @@
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <a class="navbar-brand" href="/"><img alt="ForInsper" src="{{ url_for('static', filename='images/logo.png') }}" height="100%"></a>
-        <form class="navbar-form navbar-left">
+        <!-- <form class="navbar-form navbar-left">
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Usuário">
             <input type="password" class="form-control" placeholder="Senha"> </div>
           <button type="submit" class="btn btn-default">Login</button>
-        </form>
+        </form> -->
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="" id="bs-example-navbar-collapse-1">
+      <!-- <div class="" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#">Registrar</a></li>
         </ul>
-      </div>
+      </div> -->
       <!-- /.navbar-collapse -->
     </div>
     <!-- /.container-fluid -->
@@ -46,21 +46,99 @@
           <div class="panel-body">
             <div class="container-fluid">
               <div class="category-holder">
-                <h3 class="category-title"><span class="glyphicon glyphicon-info-sign"></span> ACADÊMICO</h3>
+                <h3 class="category-title"><span class="glyphicon glyphicon-book"></span> ACADÊMICO</h3>
                 <h5 onclick="location.href='/section/adm';" class="section-title">Administração</h5>
                 <h5 onclick="location.href='/section/eco';" class="section-title">Economia</h5>
                 <h5 onclick="location.href='/section/eng';" class="section-title">Engenharia</h5>
-                <h5 onclick="location.href='/section/outros1';" class="section-title">Outros</h5>
+                <h5 onclick="location.href='/section/outrosa';" class="section-title">Outros</h5>
               </div>
+
               <div class="category-holder">
-                <h3 class="category-title"><span class="glyphicon glyphicon-info-sign"></span> SOCIAL</h3>
+
+                <h3 class="category-title"><span class="glyphicon glyphicon-user"></span> SOCIAL</h3>
+
                 <h5 onclick="location.href='/section/aep';" class="section-title">Achados e Perdidos</h5>
+
                 <h5 onclick="location.href='/section/club';" class="section-title">Clubes</h5>
-                <h5 onclick="location.href='/section/ent';" class="section-title">Entidades</h5>
-                <h5 onclick="location.href='/section/outros2';" class="section-title">Outros</h5>
+
+                <h5 class="section-title" data-toggle="collapse" href="#listaentidades">Entidades
+                  <span class="caret"></span>
+                </h5>
+                  <div id="listaentidades" class="panel-collapse collapse">
+                    <ul class="list-group list-unstyled">
+                      <li onclick="location.href='/section/atl';" class="list-group-item">
+                        Atlética
+                      </li>
+
+                      <li onclick="location.href='/section/cons';" class="list-group-item">
+                        Consilium Insper
+                      </li>
+
+                      <li onclick="location.href='/section/desc';" class="list-group-item">
+                        Design Challenge
+                      </li>
+
+                      <li onclick="location.href='/section/da';" class="list-group-item">
+                        Diretório Acadêmico
+                      </li>
+
+                      <li onclick="location.href='/section/enac';" class="list-group-item">
+                        Enactus
+                      </li>
+
+                      <li onclick="location.href='/section/gas';" class="list-group-item">
+                        GÁS
+                      </li>
+
+                      <li onclick="location.href='/section/inf';" class="list-group-item">
+                        inFinance
+                      </li>
+
+                      <li onclick="location.href='/section/inspo';" class="list-group-item">
+                        Insper Post
+                      </li>
+                      
+                      <li onclick="location.href='/section/liga';" class="list-group-item">
+                        Liga de Empreedendores
+                      </li>
+
+                      <li onclick="location.href='/section/sement';" class="list-group-item">
+                        Sementes Culturais
+                      </li>
+                    </ul>
+                  </div>    
+
+                <h5 onclick="location.href='/section/outross';" class="section-title">Outros</h5>
               </div>
+
+<!--               <div class="category-holder">
+
+                <h3 class="category-title"><span class="glyphicon glyphicon-info-sign"></span> ENTIDADES</h3>
+
+                <h5 onclick="location.href='/section/atle';" class="section-title">Atlética</h5>
+
+                <h5 onclick="location.href='/section/cons';" class="section-title">Consilium Insper</h5>
+
+                <h5 onclick="location.href='/section/desc';" class="section-title">Design Challenge</h5>
+
+                <h5 onclick="location.href='/section/da';" class="section-title">Diretório Acadêmico</h5>
+
+                <h5 onclick="location.href='/section/enac';" class="section-title">Enactus</h5>
+
+                <h5 onclick="location.href='/section/gas';" class="section-title">GÁS</h5>
+
+                <h5 onclick="location.href='/section/inf';" class="section-title">inFinance</h5>
+
+                <h5 onclick="location.href='/section/inspo';" class="section-title">Insper Post</h5>
+
+                <h5 onclick="location.href='/section/liga';" class="section-title">Liga de Empreedendores</h5>
+
+                <h5 onclick="location.href='/section/sement';" class="section-title">Sementes Culturais</h5>
+  
+              </div> -->
+
               <div class="category-holder">
-                <h3 class="category-title"><span class="glyphicon glyphicon-info-sign"></span> <a href="/section"> OUTROS</a></h3>
+                <h3 class="category-title"><span class="glyphicon glyphicon-random"></span> <a href="/section/outros"> OUTROS</a></h3>
               </div>
             </div>
           </div>
@@ -77,9 +155,9 @@
             </ul>
           </div>
         </div>
-       <!--  <div class="btn-group" role="group" aria-label="">
+        <div class="btn-group" role="group" aria-label="">
           <button onclick="location.href='/new_topic';" type="button" class="btn btn-danger"><span class="glyphicon glyphicon-edit"></span> Novo tópico</button>
-        </div> -->
+        </div>
       </div>
     </div>
     <p class="text-center">&copy;

@@ -22,19 +22,19 @@
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
         <a class="navbar-brand" href="/"><img alt="ForInsper" src="{{ url_for('static', filename='images/logo.png') }}" height="100%"></a>
-        <form class="navbar-form navbar-left">
+        <!-- <form class="navbar-form navbar-left">
           <div class="form-group">
             <input type="text" class="form-control" placeholder="Usuário">
             <input type="password" class="form-control" placeholder="Senha"> </div>
           <button type="submit" class="btn btn-default">Login</button>
-        </form>
+        </form> -->
       </div>
       <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="" id="bs-example-navbar-collapse-1">
+      <!-- <div class="" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#">Registrar</a></li>
         </ul>
-      </div>
+      </div> -->
       <!-- /.navbar-collapse -->
     </div>
     <!-- /.container-fluid -->
@@ -61,17 +61,37 @@
                 <div class="input-group"> <span class="input-group-addon" id="basic-addon3">Categoria</span>
                     <select class="form-control" id="sel1">
                     <option value="" disabled selected="selected">---</option>
-                    <option value="entidades">Entidades</option>
-                    <option value="graduacao">Graduação</option>
+                    <option value="academico">Acadêmico</option>
+                    <option value="social">Social</option>
+                    <option value= "outros">Outro</option>
                     </select>
                 </div>
                 <br/>
                 <div class="input-group"> <span class="input-group-addon" id="basic-addon3">Tema</span>
-                    <select class="form-control" id="sel2">
+                  <select class="form-control" id="sel2">
                     <option value="" disabled selected="selected">---</option>
-                    <option value="entidades">D.A. Insper</option>
-                    <option value="graduacao">InFinance</option>
-                    </select>
+                    <option value="academico">Administração</option>
+                    <option value="academico">Economia</option>
+                    <option value="academico">Engenharia</option>
+                    <option value="academico">Economia</option>
+                    <option value="academico">Outros</option>
+
+                    <option value="social">Achados e Perdidos</option>
+                    <option value="social">Clubes</option>
+                    <option value="social">Atlética</option>
+                    <option value="social">Consilium Insper</option>
+                    <option value="social">Design Chalenge</option>
+                    <option value="social">Diretório Acadêmico</option>
+                    <option value="social">Enactus</option>
+                    <option value="social">GÁS</option>
+                    <option value="social">inFinance</option>
+                    <option value="social">Insper Post</option>
+                    <option value="social">Liga de Empreendedores</option>
+                    <option value="social">Sementes Culturais</option>
+                    <option value="social">Outros</option>
+
+
+                  </select>
                 </div>
                 <br/>
                 <div class="btn-group pull-right" role="group" aria-label="">
