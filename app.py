@@ -137,8 +137,11 @@ def topic():
         tpost = TopicPost(email, title, text, category, theme)
         db.session.add(tpost)
         db.session.commit()
-        return "Mensagem de {}, sob o titulo de {}"\
-            .format(email, title)
+        return render_template("topic_view.html",
+                               senddata=TopicPost.query,
+                               category=category.title())
+        # return "Mensagem de {}, sob o titulo de {}"\
+        #     .format(email, title)
     else:
         # DEBUG: Essa feature so faz sentido por enquanto
         #        criei para que possamos ver se a postagem
